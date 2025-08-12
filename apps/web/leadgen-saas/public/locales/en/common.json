@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "howItWorks": "How it Works",
+    "faq": "FAQ",
+    "signIn": "Sign In",
+    "startTrial": "Start Free Trial"
+  },
+  "hero": {
+    "badge": "Trusted by 10,000+ B2B companies",
+    "headline": "Automate your prospecting —",
+    "headlineAccent": " reach leads on WhatsApp & email",
+    "subheadline": "Capture leads, personalize sequences, and scale outreach from one secure dashboard. Turn prospects into customers with AI-powered automation.",
+    "ctaPrimary": "Start free 14-day trial",
+    "ctaSecondary": "Book a demo",
+    "trialInfo": "No credit card required • Setup in 5 minutes • Cancel anytime"
+  },
+  "features": {
+    "title": "Everything you need to scale outreach",
+    "subtitle": "Powerful automation tools designed to help you capture more leads and convert them into loyal customers",
+    "leadCapture": {
+      "title": "Smart Lead Capture",
+      "description": "Capture leads from multiple sources with intelligent forms, landing pages, and website widgets"
+    },
+    "whatsapp": {
+      "title": "WhatsApp Automation",
+      "description": "Send personalized messages and automated sequences directly via WhatsApp Business API"
+    },
+    "email": {
+      "title": "Email Sequences",
+      "description": "Create and send targeted email campaigns with advanced personalization and A/B testing"
+    },
+    "analytics": {
+      "title": "Advanced Analytics",
+      "description": "Track performance with detailed analytics, conversion metrics, and ROI reporting"
+    },
+    "workflows": {
+      "title": "AI-Powered Workflows",
+      "description": "Set up intelligent automation sequences that adapt based on lead behavior and engagement"
+    },
+    "security": {
+      "title": "Enterprise Security",
+      "description": "Bank-grade security with GDPR compliance, SOC 2 certification, and end-to-end encryption"
+    }
+  },
+  "auth": {
+    "signUp": {
+      "title": "Start your free trial",
+      "subtitle": "Get started with AceOfHeartsLeads today",
+      "fullName": "Full name",
+      "email": "Email address",
+      "password": "Password",
+      "confirmPassword": "Confirm password",
+      "company": "Company name",
+      "createAccount": "Create account",
+      "alreadyHaveAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "orContinueWith": "Or continue with",
+      "terms": "By creating an account, you agree to our Terms of Service and Privacy Policy"
+    },
+    "signIn": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your AceOfHeartsLeads account",
+      "email": "Email address",
+      "password": "Password",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign in",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "orContinueWith": "Or continue with"
+    }
+  },
+  "leadCapture": {
+    "title": "Ready to get started?",
+    "subtitle": "Join thousands of businesses scaling their outreach",
+    "name": "Full name",
+    "email": "Work email",
+    "company": "Company name",
+    "phone": "Phone number",
+    "submit": "Start free trial",
+    "success": "Thanks! We'll be in touch soon.",
+    "error": "Something went wrong. Please try again."
+  }
+}

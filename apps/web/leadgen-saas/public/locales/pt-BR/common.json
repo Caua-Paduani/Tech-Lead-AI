@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "features": "Recursos",
+    "pricing": "Preços",
+    "howItWorks": "Como Funciona",
+    "faq": "FAQ",
+    "signIn": "Entrar",
+    "startTrial": "Teste Grátis"
+  },
+  "hero": {
+    "badge": "Confiado por mais de 10.000 empresas B2B",
+    "headline": "Automatize sua prospecção —",
+    "headlineAccent": " alcance leads no WhatsApp e email",
+    "subheadline": "Capture leads, personalize sequências e escale seu outreach de um dashboard seguro. Transforme prospects em clientes com automação alimentada por IA.",
+    "ctaPrimary": "Iniciar teste gratuito de 14 dias",
+    "ctaSecondary": "Agendar demo",
+    "trialInfo": "Sem cartão de crédito • Configuração em 5 minutos • Cancele a qualquer momento"
+  },
+  "features": {
+    "title": "Tudo que você precisa para escalar outreach",
+    "subtitle": "Ferramentas poderosas de automação projetadas para ajudá-lo a capturar mais leads e convertê-los em clientes fiéis",
+    "leadCapture": {
+      "title": "Captura Inteligente de Leads",
+      "description": "Capture leads de múltiplas fontes com formulários inteligentes, landing pages e widgets de website"
+    },
+    "whatsapp": {
+      "title": "Automação WhatsApp",
+      "description": "Envie mensagens personalizadas e sequências automatizadas diretamente via WhatsApp Business API"
+    },
+    "email": {
+      "title": "Sequências de Email",
+      "description": "Crie e envie campanhas de email direcionadas com personalização avançada e testes A/B"
+    },
+    "analytics": {
+      "title": "Analytics Avançado",
+      "description": "Acompanhe performance com analytics detalhado, métricas de conversão e relatórios de ROI"
+    },
+    "workflows": {
+      "title": "Workflows com IA",
+      "description": "Configure sequências de automação inteligentes que se adaptam baseadas no comportamento e engajamento do lead"
+    },
+    "security": {
+      "title": "Segurança Empresarial",
+      "description": "Segurança de nível bancário com conformidade GDPR, certificação SOC 2 e criptografia ponta a ponta"
+    }
+  },
+  "auth": {
+    "signUp": {
+      "title": "Inicie seu teste gratuito",
+      "subtitle": "Comece com AceOfHeartsLeads hoje",
+      "fullName": "Nome completo",
+      "email": "Endereço de email",
+      "password": "Senha",
+      "confirmPassword": "Confirmar senha",
+      "company": "Nome da empresa",
+      "createAccount": "Criar conta",
+      "alreadyHaveAccount": "Já tem uma conta?",
+      "signIn": "Entrar",
+      "orContinueWith": "Ou continue com",
+      "terms": "Ao criar uma conta, você concorda com nossos Termos de Serviço e Política de Privacidade"
+    },
+    "signIn": {
+      "title": "Bem-vindo de volta",
+      "subtitle": "Entre na sua conta AceOfHeartsLeads",
+      "email": "Endereço de email",
+      "password": "Senha",
+      "forgotPassword": "Esqueceu a senha?",
+      "signIn": "Entrar",
+      "noAccount": "Não tem uma conta?",
+      "signUp": "Cadastre-se",
+      "orContinueWith": "Ou continue com"
+    }
+  },
+  "leadCapture": {
+    "title": "Pronto para começar?",
+    "subtitle": "Junte-se a milhares de empresas escalando seu outreach",
+    "name": "Nome completo",
+    "email": "Email de trabalho",
+    "company": "Nome da empresa",
+    "phone": "Número de telefone",
+    "submit": "Iniciar teste gratuito",
+    "success": "Obrigado! Entraremos em contato em breve.",
+    "error": "Algo deu errado. Tente novamente."
+  }
+}
