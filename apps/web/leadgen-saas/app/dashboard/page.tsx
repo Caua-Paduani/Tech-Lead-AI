@@ -5,21 +5,21 @@ import { Users, MessageSquare, Mail, TrendingUp, Plus, ArrowUpRight, ArrowDownRi
 
 export default function DashboardPage() {
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
       {/* Welcome Section */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0">
         <div>
           <h1 className="text-3xl font-bold font-display text-white">Welcome back!</h1>
           <p className="text-muted-1 mt-1">Here's what's happening with your leads today.</p>
         </div>
-        <Button className="bg-brand-red hover:bg-brand-red-hover neon-glow">
+        <Button className="bg-brand-red hover:bg-brand-red-hover neon-glow w-full lg:w-auto">
           <Plus className="w-4 h-4 mr-2" />
           New Campaign
         </Button>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         <Card className="glass-card border-white/10">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-muted-1">Total Leads</CardTitle>
@@ -78,7 +78,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Recent Activity & Quick Actions */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 lg:gap-6">
         {/* Recent Leads */}
         <Card className="glass-card border-white/10">
           <CardHeader>
@@ -207,7 +207,7 @@ export default function DashboardPage() {
           <CardDescription className="text-muted-1">Get started with common tasks</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Button
               variant="outline"
               className="h-20 border-white/20 text-white hover:bg-white/5 flex-col space-y-2 bg-transparent"

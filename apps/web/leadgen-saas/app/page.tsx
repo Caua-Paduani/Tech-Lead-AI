@@ -32,10 +32,10 @@ export default function AceOfHeartsLeadsLanding() {
           </nav>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" className="text-muted-1 hover:text-white" asChild>
-              <Link href="/login">Sign In</Link>
+              <Link href="/auth/login">Sign In</Link>
             </Button>
             <Button className="bg-brand-red hover:bg-brand-red-hover neon-glow" asChild>
-              <Link href="/signup">Start Free Trial</Link>
+              <Link href="/auth/signup">Start Free Trial</Link>
             </Button>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function AceOfHeartsLeadsLanding() {
               className="text-lg px-10 py-7 bg-brand-red hover:bg-brand-red-hover neon-glow font-semibold"
               asChild
             >
-              <Link href="/signup">Start free 14-day trial</Link>
+              <Link href="/auth/signup">Start free 14-day trial</Link>
             </Button>
             <Button
               size="lg"
@@ -597,7 +597,7 @@ export default function AceOfHeartsLeadsLanding() {
               className="text-lg px-10 py-7 bg-brand-red hover:bg-brand-red-hover neon-glow font-semibold"
               asChild
             >
-              <Link href="/signup">Start free 14-day trial</Link>
+              <Link href="/auth/signup">Start free 14-day trial</Link>
             </Button>
             <Button
               size="lg"
