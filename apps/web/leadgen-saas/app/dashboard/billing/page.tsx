@@ -52,22 +52,22 @@ export default function BillingPage() {
   }
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-4 lg:p-6 space-y-4 lg:space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-3xl font-bold font-display text-white">Billing & Subscription</h1>
+        <h1 className="text-2xl lg:text-3xl font-bold font-display text-white">Billing & Subscription</h1>
         <p className="text-muted-1 mt-1">Manage your subscription and billing information</p>
       </div>
 
       {/* Trial Banner */}
       <Card className="glass-card border-brand-red/30 bg-brand-red/5">
         <CardContent className="p-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col space-y-3 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-brand-red/20 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-brand-red/20 rounded-full flex items-center justify-center flex-shrink-0">
                 <Clock className="w-5 h-5 text-brand-red" />
               </div>
-              <div>
+              <div className="min-w-0">
                 <h3 className="text-white font-semibold">Free Trial Active</h3>
                 <p className="text-muted-1 text-sm">
                   {trialInfo.daysRemaining} days remaining • Trial ends on{" "}
@@ -75,20 +75,24 @@ export default function BillingPage() {
                 </p>
               </div>
             </div>
-            <Button className="bg-brand-red hover:bg-brand-red-hover neon-glow" onClick={() => setShowPlanModal(true)}>
+            <Button
+              className="bg-brand-red hover:bg-brand-red-hover neon-glow w-full sm:w-auto"
+              onClick={() => setShowPlanModal(true)}
+            >
               Upgrade Now
             </Button>
           </div>
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* Main Grid */}
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 lg:gap-6">
         {/* Current Plan & Usage */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="xl:col-span-2 space-y-4 lg:space-y-6">
           {/* Current Plan */}
           <Card className="glass-card border-white/10">
             <CardHeader>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col space-y-3 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
                 <div>
                   <CardTitle className="text-white flex items-center">
                     <Crown className="w-5 h-5 mr-2 text-brand-red" />
@@ -101,17 +105,17 @@ export default function BillingPage() {
                 <Button
                   variant="outline"
                   onClick={() => setShowPlanModal(true)}
-                  className="border-brand-red/30 text-brand-red hover:bg-brand-red/10 bg-transparent"
+                  className="border-brand-red/30 text-brand-red hover:bg-brand-red/10 bg-transparent w-full sm:w-auto"
                 >
                   Change Plan
                 </Button>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {currentPlan.features.map((feature, index) => (
                   <div key={index} className="flex items-center space-x-2">
-                    <Check className="w-4 h-4 text-green-400" />
+                    <Check className="w-4 h-4 text-green-400 flex-shrink-0" />
                     <span className="text-muted-1 text-sm">{feature}</span>
                   </div>
                 ))}
@@ -127,7 +131,7 @@ export default function BillingPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-3">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col space-y-1 sm:flex-row sm:justify-between sm:items-center sm:space-y-0">
                   <div className="flex items-center space-x-2">
                     <Users className="w-4 h-4 text-muted-1" />
                     <span className="text-white">Leads</span>
@@ -144,7 +148,7 @@ export default function BillingPage() {
               </div>
 
               <div className="space-y-3">
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col space-y-1 sm:flex-row sm:justify-between sm:items-center sm:space-y-0">
                   <div className="flex items-center space-x-2">
                     <MessageSquare className="w-4 h-4 text-muted-1" />
                     <span className="text-white">Messages</span>
@@ -161,8 +165,8 @@ export default function BillingPage() {
               </div>
 
               {getUsagePercentage(currentPlan.usage.leads.current, currentPlan.usage.leads.limit) > 80 && (
-                <div className="flex items-center space-x-2 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
-                  <AlertCircle className="w-4 h-4 text-yellow-400" />
+                <div className="flex items-start space-x-2 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                  <AlertCircle className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
                   <span className="text-yellow-400 text-sm">
                     You're approaching your lead limit. Consider upgrading your plan.
                   </span>
@@ -182,19 +186,19 @@ export default function BillingPage() {
                 {invoices.map((invoice) => (
                   <div
                     key={invoice.id}
-                    className="flex items-center justify-between p-3 rounded-lg border border-white/10 hover:border-brand-red/30 transition-colors"
+                    className="flex flex-col space-y-3 sm:flex-row sm:items-center sm:justify-between sm:space-y-0 p-3 rounded-lg border border-white/10 hover:border-brand-red/30 transition-colors"
                   >
                     <div className="flex items-center space-x-3">
-                      <div className="w-10 h-10 bg-brand-red/20 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-brand-red/20 rounded-lg flex items-center justify-center flex-shrink-0">
                         <CreditCard className="w-5 h-5 text-brand-red" />
                       </div>
-                      <div>
-                        <p className="text-white font-medium">{invoice.description}</p>
+                      <div className="min-w-0">
+                        <p className="text-white font-medium truncate">{invoice.description}</p>
                         <p className="text-muted-1 text-sm">{new Date(invoice.date).toLocaleDateString()}</p>
                       </div>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <div className="text-right">
+                    <div className="flex items-center justify-between sm:justify-end sm:space-x-3">
+                      <div className="text-left sm:text-right">
                         <p className="text-white font-medium">${invoice.amount}</p>
                         <Badge
                           className={
@@ -218,7 +222,7 @@ export default function BillingPage() {
         </div>
 
         {/* Payment Method */}
-        <div className="space-y-6">
+        <div className="space-y-4 lg:space-y-6">
           <Card className="glass-card border-white/10">
             <CardHeader>
               <CardTitle className="text-white">Payment Method</CardTitle>
@@ -228,7 +232,7 @@ export default function BillingPage() {
               <div className="p-4 rounded-lg border border-white/10 bg-surface-1">
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-brand-red/20 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-brand-red/20 rounded-lg flex items-center justify-center flex-shrink-0">
                       <CreditCard className="w-5 h-5 text-brand-red" />
                     </div>
                     <div>
@@ -288,7 +292,7 @@ export default function BillingPage() {
 
       {/* Plan Selection Modal */}
       <Dialog open={showPlanModal} onOpenChange={setShowPlanModal}>
-        <DialogContent className="max-w-6xl bg-surface-1 border-white/10 text-white max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-6xl bg-surface-1 border-white/10 text-white max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-white font-display">Choose Your Plan</DialogTitle>
             <DialogDescription className="text-muted-1">
@@ -298,7 +302,7 @@ export default function BillingPage() {
 
           <div className="space-y-6">
             {/* Billing Toggle */}
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex flex-col items-center space-y-2 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
               <span className={billingCycle === "monthly" ? "text-white" : "text-muted-1"}>Monthly</span>
               <div className="relative">
                 <input
@@ -325,7 +329,7 @@ export default function BillingPage() {
             </div>
 
             {/* Plans */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {plans.map((plan) => {
                 const pricing = formatPrice(plan.monthlyPrice, plan.annualPrice)
                 const isCurrentPlan = plan.name.toLowerCase() === currentPlan.name.toLowerCase()
@@ -360,9 +364,9 @@ export default function BillingPage() {
                     <CardContent>
                       <ul className="space-y-4 mb-8">
                         {plan.features.map((feature, index) => (
-                          <li key={index} className="flex items-center">
-                            <Check className="w-5 h-5 text-brand-red mr-3 flex-shrink-0" />
-                            <span className="text-muted-1">{feature}</span>
+                          <li key={index} className="flex items-start">
+                            <Check className="w-5 h-5 text-brand-red mr-3 flex-shrink-0 mt-0.5" />
+                            <span className="text-muted-1 text-sm">{feature}</span>
                           </li>
                         ))}
                       </ul>

@@ -14,9 +14,9 @@ export default function DashboardLayout({
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col lg:mr-80">
+      <div className="flex-1 flex flex-col min-w-0">
         <Header />
-        <main className="flex-1 overflow-auto">{children}</main>
+        <main className="flex-1 overflow-auto p-4 lg:p-0">{children}</main>
       </div>
 
       {/* Inspector Panel - Hidden on mobile */}
