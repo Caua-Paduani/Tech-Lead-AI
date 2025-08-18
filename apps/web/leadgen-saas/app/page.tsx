@@ -14,7 +14,7 @@ export default function AceOfHeartsLeadsLanding() {
             <div className="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center neon-glow">
               <Heart className="w-6 h-6 text-white fill-white" />
             </div>
-            <span className="text-2xl font-bold font-display text-white">AceOfHeartsLeads</span>
+            <span className="text-2xl font-bold font-display text-white">TechLeads AI</span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-muted-1 hover:text-white transition-colors">
@@ -46,7 +46,7 @@ export default function AceOfHeartsLeadsLanding() {
         <div className="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent"></div>
         <div className="container mx-auto text-center max-w-5xl relative">
           <Badge className="mb-6 bg-glass border-brand-red/30 text-brand-red hover:bg-glass">
-            Trusted by 10,000+ B2B companies
+            Trusted by 100 B2B companies
           </Badge>
           <h1 className="text-6xl md:text-7xl font-bold font-display text-white mb-8 leading-tight">
             Automate your prospecting —<span className="text-brand-red"> reach leads on WhatsApp & email</span>
@@ -354,7 +354,7 @@ export default function AceOfHeartsLeadsLanding() {
                 <CardTitle className="text-2xl text-white font-display">Starter</CardTitle>
                 <CardDescription className="text-muted-1">Perfect for small businesses</CardDescription>
                 <div className="mt-6">
-                  <span className="text-5xl font-bold text-white">[placeholder]</span>
+                  <span className="text-5xl font-bold text-white">$15</span>
                   <span className="text-muted-1">/month</span>
                 </div>
               </CardHeader>
@@ -362,15 +362,11 @@ export default function AceOfHeartsLeadsLanding() {
                 <ul className="space-y-4 mb-8">
                   <li className="flex items-center">
                     <Check className="w-5 h-5 text-brand-red mr-3 flex-shrink-0" />
-                    <span className="text-muted-1">Up to 1,000 leads/month</span>
+                    <span className="text-muted-1">Up to 300 leads/month</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="w-5 h-5 text-brand-red mr-3 flex-shrink-0" />
-                    <span className="text-muted-1">WhatsApp messaging</span>
-                  </li>
-                  <li className="flex items-center">
-                    <Check className="w-5 h-5 text-brand-red mr-3 flex-shrink-0" />
-                    <span className="text-muted-1">Email campaigns</span>
+                    <span className="text-muted-1">WhatsApp or email messaging (just one)</span>
                   </li>
                   <li className="flex items-center">
                     <Check className="w-5 h-5 text-brand-red mr-3 flex-shrink-0" />
@@ -399,7 +395,7 @@ export default function AceOfHeartsLeadsLanding() {
                 <CardTitle className="text-2xl text-white font-display">Growth</CardTitle>
                 <CardDescription className="text-muted-1">For growing businesses</CardDescription>
                 <div className="mt-6">
-                  <span className="text-5xl font-bold text-white">[placeholder]</span>
+                  <span className="text-5xl font-bold text-white">$35</span>
                   <span className="text-muted-1">/month</span>
                 </div>
               </CardHeader>
@@ -442,7 +438,7 @@ export default function AceOfHeartsLeadsLanding() {
                 <CardTitle className="text-2xl text-white font-display">Pro</CardTitle>
                 <CardDescription className="text-muted-1">For large organizations</CardDescription>
                 <div className="mt-6">
-                  <span className="text-5xl font-bold text-white">[placeholder]</span>
+                  <span className="text-5xl font-bold text-white">$65</span>
                   <span className="text-muted-1">/month</span>
                 </div>
               </CardHeader>
