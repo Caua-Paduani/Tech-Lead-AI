@@ -1,3 +1,6 @@
+"use client"
+
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -13,9 +16,83 @@ import {
   Facebook,
   Zap,
   X,
+  Loader2,
+  CheckCircle,
 } from "lucide-react"
 
+// Hook para gerenciar conexão com Facebook
+function useFacebookConnection() {
+  const [isConnecting, setIsConnecting] = useState(false)
+  const [isConnected, setIsConnected] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  // Verificar se já está conectado ao carregar a página
+  useEffect(() => {
+    const checkConnection = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/facebook/pages", {
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        })
+        
+        if (response.ok) {
+          setIsConnected(true)
+        }
+      } catch (err) {
+        // Usuário não está conectado
+      }
+    }
+
+    checkConnection()
+  }, [])
+
+  const connectFacebook = async () => {
+    setIsConnecting(true)
+    setError(null)
+
+    try {
+      // Gerar state para segurança
+      const state = crypto.getRandomValues(new Uint32Array(1))[0].toString()
+      localStorage.setItem("fb_oauth_state", state)
+
+      // Buscar URL de autorização do backend
+      const response = await fetch("http://localhost:3000/auth/facebook/connect", {
+        headers: {
+          "Authorization": `Bearer ${localStorage.getItem("authToken")}`, // Ajuste conforme sua autenticação
+          "Content-Type": "application/json",
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error("Erro ao conectar com Facebook")
+      }
+
+      const data = await response.json()
+      
+      // Adicionar state à URL
+      const authUrl = `${data.authUrl}&state=${encodeURIComponent(state)}`
+      
+      // Redirecionar para Facebook
+      window.location.href = authUrl
+
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Erro desconhecido")
+      setIsConnecting(false)
+    }
+  }
+
+  return {
+    isConnecting,
+    isConnected,
+    error,
+    connectFacebook,
+  }
+}
+
 export default function DashboardPage() {
+  const { isConnecting, isConnected, error, connectFacebook } = useFacebookConnection()
+
   return (
     <div className="min-h-screen w-full p-3 sm:p-4 lg:p-6 space-y-4 lg:space-y-6">
       {/* Welcome Section */}
@@ -31,53 +108,102 @@ export default function DashboardPage() {
       </div>
 
       {/* Facebook Connection Alert Banner */}
-      <Card className="glass-card border-brand-red/30 bg-gradient-to-r from-brand-red/10 to-blue-600/10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-red/5 to-transparent"></div>
-        <CardContent className="p-3 sm:p-4 lg:p-6 relative">
-          <div className="flex flex-col space-y-3 sm:space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0">
-            <div className="flex items-start space-x-3 sm:space-x-4 min-w-0">
-              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600/20 rounded-full flex items-center justify-center border border-blue-500/30">
-                <Facebook className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+      {!isConnected && (
+        <Card className="glass-card border-brand-red/30 bg-gradient-to-r from-brand-red/10 to-blue-600/10 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-red/5 to-transparent"></div>
+          <CardContent className="p-3 sm:p-4 lg:p-6 relative">
+            <div className="flex flex-col space-y-3 sm:space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0">
+              <div className="flex items-start space-x-3 sm:space-x-4 min-w-0">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-600/20 rounded-full flex items-center justify-center border border-blue-500/30">
+                  <Facebook className="w-5 h-5 sm:w-6 sm:w-6 text-blue-400" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+                    Conecte sua conta do Facebook
+                    <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-brand-red animate-pulse flex-shrink-0" />
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-1 mt-1">
+                    Comece a capturar leads automaticamente dos seus anúncios do Facebook e Instagram.
+                    <span className="text-brand-red font-medium"> Configure em menos de 2 minutos!</span>
+                  </p>
+                  <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-2 text-xs">
+                    <span className="bg-blue-500/20 px-2 py-1 rounded-full border border-blue-500/30 text-blue-300">
+                      ✨ Captura automática
+                    </span>
+                    <span className="bg-green-500/20 px-2 py-1 rounded-full border border-green-500/30 text-green-300">
+                      📈 Mais conversões
+                    </span>
+                    <span className="bg-purple-500/20 px-2 py-1 rounded-full border border-purple-500/30 text-purple-300">
+                      ⚡ Setup rápido
+                    </span>
+                  </div>
+                  {error && (
+                    <div className="mt-2 text-xs text-red-400 bg-red-500/10 px-2 py-1 rounded border border-red-500/20">
+                      ❌ {error}
+                    </div>
+                  )}
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 lg:flex-shrink-0">
+                <Button 
+                  onClick={connectFacebook}
+                  disabled={isConnecting}
+                  className="bg-blue-600 hover:bg-blue-700 text-white border-0 neon-glow-blue px-4 sm:px-6 py-2 sm:py-3 font-semibold text-sm w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isConnecting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 flex-shrink-0 animate-spin" />
+                      Conectando...
+                    </>
+                  ) : (
+                    <>
+                      <Facebook className="w-4 h-4 mr-2 flex-shrink-0" />
+                      Conectar Facebook
+                    </>
+                  )}
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-1 hover:text-white hover:bg-white/5 w-full sm:w-auto"
+                >
+                  <X className="w-4 h-4 mr-1 flex-shrink-0" />
+                  Depois
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Facebook Connected Success Banner */}
+      {isConnected && (
+        <Card className="glass-card border-green-500/30 bg-gradient-to-r from-green-500/10 to-blue-600/10 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-transparent"></div>
+          <CardContent className="p-3 sm:p-4 lg:p-6 relative">
+            <div className="flex items-center space-x-3 sm:space-x-4">
+              <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-green-600/20 rounded-full flex items-center justify-center border border-green-500/30">
+                <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 text-green-400" />
               </div>
               <div className="min-w-0 flex-1">
                 <h3 className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
-                  Conecte sua conta do Facebook
-                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-brand-red animate-pulse flex-shrink-0" />
+                  Facebook conectado com sucesso!
                 </h3>
                 <p className="text-xs sm:text-sm text-muted-1 mt-1">
-                  Comece a capturar leads automaticamente dos seus anúncios do Facebook e Instagram.
-                  <span className="text-brand-red font-medium"> Configure em menos de 2 minutos!</span>
+                  Sua conta do Facebook foi conectada. Agora você pode sincronizar seus leads automaticamente.
                 </p>
-                <div className="flex flex-wrap items-center gap-1 sm:gap-2 mt-2 text-xs">
-                  <span className="bg-blue-500/20 px-2 py-1 rounded-full border border-blue-500/30 text-blue-300">
-                    ✨ Captura automática
-                  </span>
-                  <span className="bg-green-500/20 px-2 py-1 rounded-full border border-green-500/30 text-green-300">
-                    📈 Mais conversões
-                  </span>
-                  <span className="bg-purple-500/20 px-2 py-1 rounded-full border border-purple-500/30 text-purple-300">
-                    ⚡ Setup rápido
-                  </span>
-                </div>
               </div>
-            </div>
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3 lg:flex-shrink-0">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white border-0 neon-glow-blue px-4 sm:px-6 py-2 sm:py-3 font-semibold text-sm w-full sm:w-auto">
-                <Facebook className="w-4 h-4 mr-2 flex-shrink-0" />
-                Conectar Facebook
-              </Button>
-              <Button
-                variant="ghost"
+              <Button 
+                variant="outline"
                 size="sm"
-                className="text-muted-1 hover:text-white hover:bg-white/5 w-full sm:w-auto"
+                className="border-green-500/30 text-green-400 hover:bg-green-500/10"
               >
-                <X className="w-4 h-4 mr-1 flex-shrink-0" />
-                Depois
+                Sincronizar Leads
               </Button>
             </div>
-          </div>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Stats Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
