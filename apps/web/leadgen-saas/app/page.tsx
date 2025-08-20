@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Check, MessageSquare, Mail, BarChart3, Zap, Shield, Heart, Target, Clock, Globe, Lock } from "lucide-react"
 import Link from "next/link"
 
-export default function LeadFlowLanding() {
+export default function AceOfHeartsLeadsLanding() {
   return (
     <div className="min-h-screen bg-dark">
       {/* Header */}
@@ -68,7 +68,7 @@ export default function LeadFlowLanding() {
               variant="outline"
               className="text-lg px-10 py-7 border-white/20 text-white hover:bg-white/5 bg-transparent"
             >
-              Book a demo
+              <a href="https://calendly.com/cauapaduani/30min" target="_blank" rel="noopener noreferrer">Book a demo</a>
             </Button>
           </div>
           <p className="text-sm text-muted-1 mt-6">No credit card required • Setup in 5 minutes • Cancel anytime</p>
