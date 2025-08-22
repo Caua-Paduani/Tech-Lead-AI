@@ -14,7 +14,7 @@ export default function AceOfHeartsLeadsLanding() {
             <div className="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center neon-glow">
               <Heart className="w-6 h-6 text-white fill-white" />
             </div>
-            <span className="text-2xl font-bold font-display text-white">LeadFlow</span>
+            <span className="text-2xl font-bold font-display text-white">TechLeads AI</span>
           </div>
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#features" className="text-muted-1 hover:text-white transition-colors">
@@ -68,7 +68,7 @@ export default function AceOfHeartsLeadsLanding() {
               variant="outline"
               className="text-lg px-10 py-7 border-white/20 text-white hover:bg-white/5 bg-transparent"
             >
-              <a href="https://calendly.com/cauapaduani/30min" target="_blank" rel="noopener noreferrer">Book a demo</a>
+              Book a demo
             </Button>
           </div>
           <p className="text-sm text-muted-1 mt-6">No credit card required • Setup in 5 minutes • Cancel anytime</p>
@@ -78,7 +78,7 @@ export default function AceOfHeartsLeadsLanding() {
       {/* Trust Badges */}
       <section className="py-12 px-4 border-y border-white/10">
         <div className="container mx-auto">
-          <p className="text-center text-muted-1 mb-8">Trusted by leading companies worldwide</p>
+          <p className="text-center text-muted-1 mb-8">Trusted by leading companies</p>
           <div className="flex justify-center items-center space-x-12 opacity-60">
             <div className="text-2xl font-bold">TechCorp</div>
             <div className="text-2xl font-bold">GrowthLab</div>
@@ -481,8 +481,8 @@ export default function AceOfHeartsLeadsLanding() {
 
           <div className="text-center mt-12">
             <p className="text-muted-1 mb-4">Need something custom?</p>
-            <Button variant="outline" className="border-white/20 text-white hover:bg-white/5 bg-transparent" asChild>
-              <Link href="/enterprise">Contact our Enterprise team</Link>
+            <Button variant="outline" className="border-white/20 text-white hover:bg-white/5 bg-transparent">
+              Contact our Enterprise team
             </Button>
           </div>
         </div>
@@ -493,7 +493,7 @@ export default function AceOfHeartsLeadsLanding() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-bold font-display text-white mb-6">Frequently asked questions</h2>
-            <p className="text-xl text-muted-1">Everything you need to know about LeadFlow</p>
+            <p className="text-xl text-muted-1">Everything you need to know about AceOfHeartsLeads</p>
           </div>
 
           <div className="space-y-6">
@@ -503,7 +503,7 @@ export default function AceOfHeartsLeadsLanding() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-1">
-                  Start using LeadFlow immediately with full access to all features.
+                  Start using AceOfHeartsLeads immediately with full access to all features. No credit card required.
                   Cancel anytime during the trial period.
                 </p>
               </CardContent>
@@ -585,7 +585,7 @@ export default function AceOfHeartsLeadsLanding() {
         <div className="container mx-auto text-center max-w-4xl">
           <h2 className="text-5xl font-bold font-display text-white mb-8">Ready to transform your prospecting?</h2>
           <p className="text-xl text-muted-1 mb-10">
-            Join thousands of B2B companies already using LeadFlow to scale their outreach and grow revenue
+            Join thousands of B2B companies already using AceOfHeartsLeads to scale their outreach and grow revenue
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Button
@@ -616,7 +616,7 @@ export default function AceOfHeartsLeadsLanding() {
                 <div className="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center neon-glow">
                   <Heart className="w-6 h-6 text-white fill-white" />
                 </div>
-                <span className="text-2xl font-bold font-display">LeadFlow</span>
+                <span className="text-2xl font-bold font-display">AceOfHeartsLeads</span>
               </div>
               <p className="text-muted-1 mb-6 max-w-md">
                 The all-in-one platform for B2B lead capture and automated outreach on WhatsApp and email.
@@ -702,7 +702,7 @@ export default function AceOfHeartsLeadsLanding() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="/privacy" className="hover:text-white transition-colors">
                     Privacy
                   </a>
                 </li>
@@ -710,7 +710,7 @@ export default function AceOfHeartsLeadsLanding() {
             </div>
           </div>
           <div className="border-t border-white/10 mt-12 pt-8 text-center text-muted-1">
-            <p>&copy; 2025 LeadFlow. All rights reserved.</p>
+            <p>&copy; 2025 AceOfHeartsLeads. All rights reserved.</p>
           </div>
         </div>
       </footer>
