@@ -76,13 +76,13 @@ export default function LoginPage() {
           <div className="w-12 h-12 bg-brand-red rounded-xl flex items-center justify-center neon-glow">
             <Heart className="w-7 h-7 text-white fill-white" />
           </div>
-          <span className="text-3xl font-bold font-display text-white">AceOfHeartsLeads</span>
+          <span className="text-3xl font-bold font-display text-white">LeadGen</span>
         </div>
 
         <Card className="glass-card border-white/10">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl text-white font-display">{t("auth.signIn.title")}</CardTitle>
-            <CardDescription className="text-muted-1">{t("auth.signIn.subtitle")}</CardDescription>
+            <CardTitle className="text-2xl text-white font-display">{t("Login")}</CardTitle>
+            <CardDescription className="text-muted-1">{t("Mantenha-se conectado ")}</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSignIn} className="space-y-4">
@@ -94,7 +94,7 @@ export default function LoginPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-white">
-                  {t("auth.signIn.email")}
+                  {t("Email:")}
                 </Label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-1" />
@@ -112,7 +112,7 @@ export default function LoginPage() {
 
               <div className="space-y-2">
                 <Label htmlFor="password" className="text-white">
-                  {t("auth.signIn.password")}
+                  {t("Senha:")}
                 </Label>
                 <div className="relative">
                   <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-1" />
@@ -133,7 +133,7 @@ export default function LoginPage() {
                   href="/auth/forgot-password"
                   className="text-sm text-brand-red hover:text-brand-red-hover transition-colors"
                 >
-                  {t("auth.signIn.forgotPassword")}
+                  {t("Esqueci minha senha")}
                 </Link>
               </div>
 
@@ -142,7 +142,7 @@ export default function LoginPage() {
                 className="w-full bg-brand-red hover:bg-brand-red-hover neon-glow"
                 disabled={loading}
               >
-                {loading ? "Signing in..." : t("auth.signIn.signIn")}
+                {loading ? "Signing in..." : t("Entrar")}
               </Button>
             </form>
 
@@ -152,7 +152,7 @@ export default function LoginPage() {
                   <div className="w-full border-t border-white/10" />
                 </div>
                 <div className="relative flex justify-center text-sm">
-                  <span className="px-2 bg-surface-1 text-muted-1">{t("auth.signIn.orContinueWith")}</span>
+                  <span className="px-2 bg-surface-1 text-muted-1">{t("Continuar com:")}</span>
                 </div>
               </div>
 
@@ -195,9 +195,9 @@ export default function LoginPage() {
 
             <div className="mt-6 text-center">
               <p className="text-muted-1">
-                {t("auth.signIn.noAccount")}{" "}
+                {t("Não tem uma conta?")}{" "}
                 <Link href="/auth/signup" className="text-brand-red hover:text-brand-red-hover transition-colors">
-                  {t("auth.signIn.signUp")}
+                  {t("Criar conta")}
                 </Link>
               </p>
             </div>
